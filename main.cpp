@@ -1,53 +1,86 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 
-class Point2D
+class Time
 {
 public:
-
-	void SetX(int x);
-	void SetY(int y);
-	int GetX();
-	int GetY();
-	void Display();
+	void Init(int hrs, int min, int sec);
+	void displayTime12();
+	void displayTime24();
 
 private:
-	int mX;
-	int mY;
+	int _hrs;
+	int _min;
+	int _sec;
+	std::string _timeOfDay;
+	std::string _ampm;
+
 };
 
-void Point2D::SetX(int x)
+void Time::Init(int hrs, int min, int sec)
 {
-	mX = x;
+	_hrs = hrs;
+	_min = min;
+	_sec = sec;
+
 }
 
-void Point2D::SetY(int y)
+void Time::displayTime12()
 {
-	mY = y;
+
+	int hrs12 = _hrs;
+	if (hrs12 < 12)
+	{
+		hrs12 += 12;
+		_ampm = "am";
+		_timeOfDay = "morning";
+	}
+	else
+	{
+		hrs12 += -12;
+		_ampm = "pm";
+		_timeOfDay = "evening";
+	}
+
+	std::string _timesOfSeconds;
+	if (_sec <= 1)
+	{
+		_timesOfSeconds = " second";
+	}
+	else
+	{
+		_timesOfSeconds = " seconds";
+	}
+	std::cout << "Display time in 12 hour format: " << std::endl;
+	std::cout << std::setw(2) << std::setfill('0') << hrs12 << ":"
+		<< std::setw(2) << std::setfill('0') << _min << ":"
+		<< std::setw(2) << std::setfill('0') << _sec << " " << _ampm
+		<< " - " << hrs12 << " hours, " << _min << " minutes and " << _sec << _timesOfSeconds << " in the " << _timeOfDay << std::endl;
+	std::cout << std::endl;
 }
 
-int Point2D::GetX()
+void Time::displayTime24()
 {
-	return mX;
+	std::cout << "Display time in 24 hour format: " << std::endl;
+	std::cout << std::setw(2) << std::setfill('0') << _hrs << ":"
+		<< std::setw(2) << std::setfill('0') << _min << ":"
+		<< std::setw(2) << std::setfill('0') << _sec << std::endl;
+	std::cout << std::endl;
 }
 
-int Point2D::GetY()
-{
-	return mY;
-}
-
-void Point2D::Display()
-{
-	std::cout << "X: " << mX << ", Y: " << mY << std::endl;
-}
 
 int main()
 {
-	Point2D myPoint;
-	myPoint.SetX(0);
-	myPoint.SetY(1);
-	std::cout << "Size of myPoint is: " << sizeof(myPoint) << std::endl;
 
-	myPoint.Display();
-	system ("pause");
+	Time time;
+	time.Init(00, 10, 01);
+	time.displayTime12();
+	time.displayTime24();
+
+	time.Init(22, 10, 05);
+	time.displayTime12();
+	time.displayTime24();
+	system("pause");
 }
+
