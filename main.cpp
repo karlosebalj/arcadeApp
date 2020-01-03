@@ -5,7 +5,6 @@ class Point2D
 {
 public:
 	Point2D();
-	Point2D(int x, int y);
 	void SetX(int x);
 	void SetY(int y);
 	int GetX();
@@ -17,17 +16,10 @@ private:
 	int mY;
 };
 
-Point2D::Point2D()
+Point2D::Point2D():mX(0), mY(0)
 {
-	mX = 0;
-	mY = 0;
 }
 
-Point2D::Point2D(int x, int y)
-{
-	mX = x;
-	mY = y;
-}
 
 void Point2D::SetX(int x)
 {
@@ -56,9 +48,7 @@ void Point2D::Display()
 
 int main()
 {
-	Point2D myPoint(5, 10); 
-	//Point2D myPoint = Point2D(7, 12);
-	//Point2D myPoint = { 9, 20 };
+	Point2D myPoint;
 	myPoint.Display();
 
 	system("pause");
