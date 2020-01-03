@@ -5,7 +5,10 @@ class Point2D
 {
 public:
 
-	void Set(int dx, int dy);
+	void SetX(int x);
+	void SetY(int y);
+	int GetX();
+	int GetY();
 	void Display();
 
 private:
@@ -13,10 +16,24 @@ private:
 	int mY;
 };
 
-void Point2D::Set(int dx, int dy)
+void Point2D::SetX(int x)
 {
-	mX = dx;
-	mY = dy;
+	mX = x;
+}
+
+void Point2D::SetY(int y)
+{
+	mY = y;
+}
+
+int Point2D::GetX()
+{
+	return mX;
+}
+
+int Point2D::GetY()
+{
+	return mY;
 }
 
 void Point2D::Display()
@@ -26,14 +43,11 @@ void Point2D::Display()
 
 int main()
 {
-	Point2D point;
+	Point2D myPoint;
+	myPoint.SetX(0);
+	myPoint.SetY(1);
+	std::cout << "Size of myPoint is: " << sizeof(myPoint) << std::endl;
 
-	point.Set(10, 5);
-	point.Display();
-
-	Point2D point2;
-	point2.Set(7, 11);
-	point2.Display();
-
-	return 0;
+	myPoint.Display();
+	system ("pause");
 }
