@@ -1,86 +1,65 @@
 #include <iostream>
 #include <string>
-#include <iomanip>
 
-class Time
+class Point2D
 {
 public:
-	void Init(int hrs, int min, int sec);
-	void displayTime12();
-	void displayTime24();
+	Point2D();
+	Point2D(int x, int y);
+	void SetX(int x);
+	void SetY(int y);
+	int GetX();
+	int GetY();
+	void Display();
 
 private:
-	int _hrs;
-	int _min;
-	int _sec;
-	std::string _timeOfDay;
-	std::string _ampm;
-
+	int mX;
+	int mY;
 };
 
-void Time::Init(int hrs, int min, int sec)
+Point2D::Point2D()
 {
-	_hrs = hrs;
-	_min = min;
-	_sec = sec;
-
+	mX = 0;
+	mY = 0;
 }
 
-void Time::displayTime12()
+Point2D::Point2D(int x, int y)
 {
-
-	int hrs12 = _hrs;
-	if (hrs12 < 12)
-	{
-		hrs12 += 12;
-		_ampm = "am";
-		_timeOfDay = "morning";
-	}
-	else
-	{
-		hrs12 += -12;
-		_ampm = "pm";
-		_timeOfDay = "evening";
-	}
-
-	std::string _timesOfSeconds;
-	if (_sec <= 1)
-	{
-		_timesOfSeconds = " second";
-	}
-	else
-	{
-		_timesOfSeconds = " seconds";
-	}
-	std::cout << "Display time in 12 hour format: " << std::endl;
-	std::cout << std::setw(2) << std::setfill('0') << hrs12 << ":"
-		<< std::setw(2) << std::setfill('0') << _min << ":"
-		<< std::setw(2) << std::setfill('0') << _sec << " " << _ampm
-		<< " - " << hrs12 << " hours, " << _min << " minutes and " << _sec << _timesOfSeconds << " in the " << _timeOfDay << std::endl;
-	std::cout << std::endl;
+	mX = x;
+	mY = y;
 }
 
-void Time::displayTime24()
+void Point2D::SetX(int x)
 {
-	std::cout << "Display time in 24 hour format: " << std::endl;
-	std::cout << std::setw(2) << std::setfill('0') << _hrs << ":"
-		<< std::setw(2) << std::setfill('0') << _min << ":"
-		<< std::setw(2) << std::setfill('0') << _sec << std::endl;
-	std::cout << std::endl;
+	mX = x;
 }
 
+void Point2D::SetY(int y)
+{
+	mX = y;
+}
+
+int Point2D::GetX()
+{
+	return mX;
+}
+
+int Point2D::GetY()
+{
+	return mY;
+}
+
+void Point2D::Display()
+{
+	std::cout << "X: " << mX << ", Y: " << mY << std::endl;
+}
 
 int main()
 {
+	Point2D myPoint(5, 10); 
+	//Point2D myPoint = Point2D(7, 12);
+	//Point2D myPoint = { 9, 20 };
+	myPoint.Display();
 
-	Time time;
-	time.Init(00, 10, 01);
-	time.displayTime12();
-	time.displayTime24();
-
-	time.Init(22, 10, 05);
-	time.displayTime12();
-	time.displayTime24();
 	system("pause");
 }
-
