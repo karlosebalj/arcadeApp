@@ -1,62 +1,35 @@
 #include <iostream>
 #include <string>
 
-class Point2D
+class A
 {
 public:
-	Point2D();
-	Point2D(int x, int y);
-	void SetX(int x);
-	void SetY(int y);
-	int GetX();
-	int GetY();
-	void Display();
-
+	A():A(""){ }
+	A(const std::string& strVal) : mStrVal(strVal) {}
+	~A() 
+	{
+		std::cout << "Destroying: " << mStrVal << std::endl;
+	}
 private:
-	int mX;
-	int mY;
+	std::string mStrVal;
 };
 
-Point2D::Point2D():Point2D(0,0)
+class B
 {
-}
+public:
+	B() :mA1("A1"), mA2("A2") {}
+	
+	
+private:
+	A mA1;
+	A mA2;
+};
 
-Point2D::Point2D(int x, int y): mX (x), mY (y)
+int main(int argc, const char *argv[])
 {
-
-}
-
-void Point2D::SetX(int x)
-{
-	mX = x;
-}
-
-void Point2D::SetY(int y)
-{
-	mX = y;
-}
-
-int Point2D::GetX()
-{
-	return mX;
-}
-
-int Point2D::GetY()
-{
-	return mY;
-}
-
-void Point2D::Display()
-{
-	std::cout << "X: " << mX << ", Y: " << mY << std::endl;
-}
-
-int main()
-{
-	Point2D myPoint; 
-	//Point2D myPoint = Point2D(7, 12);
-	//Point2D myPoint = { 9, 20 };
-	myPoint.Display();
-
+	{
+		B myB;
+	
+	}
 	system("pause");
 }
