@@ -1,40 +1,40 @@
 #include <iostream>
 #include <string>
 
-struct A
+class String
 {
-	A(): A(0) {}
-	A(int x) :mX(x) {}
-
-	int mX;
-};
-
-class B
-{
-
 public:
-	B(A& a);
 
-	void Display()
-	{
-		std::cout << mARef.mX << std::endl;
-	}
+	String(int n);
+	String(const char * p);
+
+	void Display();
+
 private:
-	A& mARef;
+	std::string mStr;
 };
 
-B::B(A& a): mARef(a)
+String::String(int n)
 {
+	for (int i = 0; i < n; ++i)
+	{
+		mStr += '0';
+	}
+}
+
+String::String(const char * p) : mStr(p)
+{
+}
+
+void String::Display()
+{
+	std::cout << mStr << std::endl;
 }
 
 int main(int argc, const char * argv[])
 {
-	A myA(10);
-
-	B myB(myA);
-
-	myB.Display();
-
+	String myString = String (10);
+	myString.Display();
 	system("pause");
 }
 
