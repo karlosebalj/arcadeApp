@@ -4,32 +4,32 @@
 class A
 {
 public:
-	A():A(""){ }
-	A(const std::string& strVal) : mStrVal(strVal) {}
-	~A() 
+	enum MyEnumType 
 	{
-		std::cout << "Destroying: " << mStrVal << std::endl;
-	}
+		MET_A1 = 0,
+		MET_A2,
+		MET_A3
+	};
+
+	A();
+	A(MyEnumType type);
 private:
-	std::string mStrVal;
+	MyEnumType mMET;
 };
 
-class B
+A::A() :A(MyEnumType::MET_A1)
 {
-public:
-	B() :mA1("A1"), mA2("A2") {}
-	
-	
-private:
-	A mA1;
-	A mA2;
-};
+}
+
+A::A(MyEnumType type) : mMET(type)
+{
+
+}
 
 int main(int argc, const char *argv[])
 {
-	{
-		B myB;
+	A::MyEnumType type = A::MyEnumType::MET_A3;
+	A myA = A(type);
 	
-	}
 	system("pause");
 }
