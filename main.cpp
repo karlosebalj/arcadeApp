@@ -1,84 +1,41 @@
 #include <iostream>
 #include <string>
 
-class Point2D
+struct A
 {
-public:
-	Point2D();
-	Point2D(int x, int y);
-	void SetX(int x);
-	void SetY(int y);
-	int GetX();
-	int GetY();
-	void Display();
+	A(): A(0) {}
+	A(int x) :mX(x) {}
 
-	Point2D& RefOurselves();
-	Point2D* PointerOurselves();
-
-private:
 	int mX;
-	int mY;
 };
 
-Point2D::Point2D(): Point2D(0,0)
+class B
 {
-	mX = 0;
-	mY = 0;
+
+public:
+	B(A& a);
+
+	void Display()
+	{
+		std::cout << mARef.mX << std::endl;
+	}
+private:
+	A& mARef;
+};
+
+B::B(A& a): mARef(a)
+{
 }
 
-Point2D::Point2D(int x, int y) : mX(x), mY(y)
+int main(int argc, const char * argv[])
 {
-	Display();
-	this->Display(); //Does the same thing
-	mX = 0;
-	this->mX = 0; //Does the same thing as above
-}
+	A myA(10);
 
-Point2D& Point2D::RefOurselves()
-{
-	return *this; //gets value of this
-}
+	B myB(myA);
 
-Point2D* Point2D::PointerOurselves()
-{
-	return this;
-}
+	myB.Display();
 
-void Point2D::SetX(int x)
-{
-	mX = x;
-}
-
-void Point2D::SetY(int y)
-{
-	mX = y;
-}
-
-int Point2D::GetX()
-{
-	return mX;
-}
-
-int Point2D::GetY()
-{
-	return mY;
-}
-
-void Point2D::Display()
-{
-	std::cout << "X: " << mX << ", Y: " << mY << std::endl;
-}
-
-int main()
-{
-	Point2D point(5, 10);
-	
-	Point2D& refPoint = point.RefOurselves();
-	Point2D* ptrPoint = point.PointerOurselves();
-
-	refPoint.Display();
-	ptrPoint->Display();
-
-	std::cout << "Point's address: " << &point << " refPoint is referencing: " << &refPoint << " ptrPoint is pointing to: " << ptrPoint << std::endl;
 	system("pause");
 }
+
+
