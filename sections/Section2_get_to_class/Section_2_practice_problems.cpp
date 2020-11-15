@@ -26,6 +26,13 @@ void Time::DisplayTwelveHourFormat() {
     _hours -= 12;
     amOrPm = " pm";
   }
+  else if (_hours == 00) {
+    _hours = 12;
+  }
+  else if (_hours == 12) {
+    _hours = 12;
+    amOrPm = " pm";
+  }
   std::cout << std::setw(2) << std::setfill('0') << _hours << ":"
             << std::setw(2) << std::setfill('0') << _minutes << ":"
             << std::setw(2) << std::setfill('0') << _seconds << amOrPm
@@ -45,7 +52,7 @@ void Time::DisplayTwentyFourHourFormat() {
 
 int main() {
   Time time;
-  time.Init(12, 10, 01);
+  time.Init(00, 00, 01);
   time.DisplayTwentyFourHourFormat();
   time.DisplayTwelveHourFormat();
 
