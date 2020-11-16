@@ -2,13 +2,13 @@
 #include <string>
 
 class String {
- public:
+public:
   String(int n);
-  String(const char* p);
+  String(const char *p);
 
   void Display();
 
- private:
+private:
   std::string mStr;
 };
 
@@ -18,11 +18,11 @@ String::String(int n) {
   }
 }
 
-String::String(const char* p) : mStr(p) {}
+String::String(const char *p) : mStr(p) {}
 
 void String::Display() { std::cout << mStr << std::endl; }
 
-int main(int argc, const char* argv[]) {
+int main(int argc, const char *argv[]) {
   String myString = String(10);
   myString.Display();
   system("pause");
