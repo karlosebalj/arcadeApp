@@ -8,7 +8,6 @@ public:
 private:
   int mX;
   int mY;
-
 };
 
 void Point2D::Set(int dx, int dy) {
