@@ -1,11 +1,11 @@
 #include <iostream>
 
 class Point2D {
-public:
+ public:
   void Set(int dx, int dy);
   void Display();
 
-private:
+ private:
   int mX;
   int mY;
 };
