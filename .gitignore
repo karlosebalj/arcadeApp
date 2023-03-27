@@ -46,4 +46,4 @@
 **/build*/
 
 # Visual studio code
-**/.vscode/**
+# **/.vscode/**
