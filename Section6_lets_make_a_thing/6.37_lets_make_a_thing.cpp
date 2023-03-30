@@ -2,7 +2,7 @@
 #include <ostream>
 #include <string>
 
-#include "Vec2D.h"
+#include "Utils/Vec2D.h"
 
 int main() {
   Vec2D aVec(10, 5);
