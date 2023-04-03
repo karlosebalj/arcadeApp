@@ -46,6 +46,7 @@ class Vec2D {
   Vec2D& Normalize();
 
   float Distance(const Vec2D& vec) const;
+  float Dot(const Vec2D& vec) const;
 
   friend Vec2D operator*(float scalar, const Vec2D& vec);
 

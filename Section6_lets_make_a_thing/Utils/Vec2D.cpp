@@ -66,7 +66,8 @@ Vec2D Vec2D::operator-=(const Vec2D& vec) {
 }
 
 float Vec2D::Mag2() const {
-  return mX * mX + mY * mY;
+  // return mX * mX + mY * mY;
+  return Dot(*this);
 }
 
 float Vec2D::Mag() const {
@@ -91,4 +92,8 @@ Vec2D& Vec2D::Normalize() {
 
 float Vec2D::Distance(const Vec2D& vec) const {
   return (vec - *this).Mag();
+}
+
+float Vec2D::Dot(const Vec2D& vec) const {
+  return mX * vec.mX + mY * vec.mY;
 }
