@@ -9,6 +9,9 @@
 
 class Vec2D {
  public:
+
+  static const Vec2D Zero;
+
   Vec2D() : Vec2D(0, 0) {}
   Vec2D(float x, float y) : mX(x), mY(y) {}
 
@@ -38,6 +41,9 @@ class Vec2D {
 
   float Mag2() const;
   float Mag() const;
+
+  Vec2D GetUnitVec() const;
+  Vec2D& Normalize();
 
   friend Vec2D operator*(float scalar, const Vec2D& vec);
 

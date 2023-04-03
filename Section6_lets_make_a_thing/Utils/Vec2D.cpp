@@ -4,6 +4,8 @@
 #include <cassert>
 #include <cmath>
 
+const Vec2D Vec2D::Zero;
+
 std::ostream& operator<<(std::ostream& consoleOut, const Vec2D& vec) {
   consoleOut << "X: " << vec.mX << ", Y: " << vec.mY << std::endl;
   return consoleOut;
@@ -69,4 +71,20 @@ float Vec2D::Mag2() const {
 
 float Vec2D::Mag() const {
   return std::sqrt(Mag2());
+}
+
+Vec2D Vec2D::GetUnitVec() const {
+  float mag = Mag();
+  if (mag > EPSILON) {
+    return *this / mag;
+  }
+  return Vec2D::Zero;
+}
+
+Vec2D& Vec2D::Normalize() {
+  float mag = Mag();
+  if (mag > EPSILON) {
+    *this /= mag;
+  }
+  return *this;
 }
