@@ -88,3 +88,7 @@ Vec2D& Vec2D::Normalize() {
   }
   return *this;
 }
+
+float Vec2D::Distance(const Vec2D& vec) const {
+  return (vec - *this).Mag();
+}
