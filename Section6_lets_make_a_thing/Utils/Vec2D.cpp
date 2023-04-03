@@ -62,3 +62,11 @@ Vec2D Vec2D::operator-=(const Vec2D& vec) {
   *this = *this - vec;
   return *this;
 }
+
+float Vec2D::Mag2() const {
+  return mX * mX + mY * mY;
+}
+
+float Vec2D::Mag() const {
+  return std::sqrt(Mag2());
+}
