@@ -25,6 +25,8 @@ class Vec2D {
   bool operator==(const Vec2D& vec2) const;
   bool operator!=(const Vec2D& vec2) const;
 
+  Vec2D operator-() const;
+
  private:
   float mX;
   float mY;

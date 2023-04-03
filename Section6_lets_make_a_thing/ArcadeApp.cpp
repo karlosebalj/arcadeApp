@@ -5,7 +5,7 @@
 #include "Utils/Vec2D.h"
 
 int main() {
-  Vec2D aVec(10, 5);
-  std::cout << aVec << std::endl;
+  Vec2D aVec(3, 7);
+  std::cout << -aVec << std::endl;
   return 0;
 }

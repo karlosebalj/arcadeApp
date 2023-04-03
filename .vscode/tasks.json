@@ -50,7 +50,7 @@
                 "${workspaceFolder}/Section6_lets_make_a_thing/*.cpp",
                 "${workspaceFolder}/Section6_lets_make_a_thing/Utils/*.cpp",
                 "-o",
-                "${workspaceFolder}/Section6_lets_make_a_thing/6.37_lets_make_a_thing.out"
+                "${fileDirname}/${fileBasenameNoExtension}.out"
             ],
             "options": {
                 "cwd": "${workspaceFolder}/Section6_lets_make_a_thing"

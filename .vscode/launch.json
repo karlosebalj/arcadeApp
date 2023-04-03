@@ -23,6 +23,7 @@
         }
       ],
       // "preLaunchTask": "g++ build active file",
+      "preLaunchTask": "g++ Build Section6 files",
       "miDebuggerPath": "/usr/bin/gdb"
     }
   ]

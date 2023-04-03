@@ -13,3 +13,7 @@ bool Vec2D::operator==(const Vec2D& vec2) const {
 bool Vec2D::operator!=(const Vec2D& vec2) const {
   return !(*this == vec2);
 }
+
+Vec2D Vec2D::operator-() const {
+  return Vec2D(-mX, -mY);
+}
