@@ -14,5 +14,11 @@ int main() {
   Vec2D resultvec2 = 3 * aVec ;
   std::cout << resultvec2 << std::endl;
 
+  Vec2D a(5,4);
+  Vec2D b(6,10);
+
+  std::cout << a + b << std::endl;
+  std::cout << a - b << std::endl;
+
   return 0;
 }
