@@ -8,8 +8,6 @@
 #include "Utils.h"
 #include <cmath>
 
-static const float EPSILON = 0.001f;
-
 bool IsEqual(float x, float y) {
     return fabsf(x-y) < EPSILON;
 }
