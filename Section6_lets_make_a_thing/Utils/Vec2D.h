@@ -48,6 +48,8 @@ class Vec2D {
   float Distance(const Vec2D& vec) const;
   float Dot(const Vec2D& vec) const;
 
+  Vec2D ProjectOnto(const Vec2D& vec2) const;
+
   friend Vec2D operator*(float scalar, const Vec2D& vec);
 
  private:

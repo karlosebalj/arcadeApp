@@ -97,3 +97,18 @@ float Vec2D::Distance(const Vec2D& vec) const {
 float Vec2D::Dot(const Vec2D& vec) const {
   return mX * vec.mX + mY * vec.mY;
 }
+
+Vec2D Vec2D::ProjectOnto(const Vec2D& vec2) const {
+  Vec2D unitVec2 = vec2.GetUnitVec();
+
+  // if we use the GetUnitVec() we do not need the commented part
+  // float mag2 = vec2.Mag2();
+
+  // if (IsLessThanOrEqual(mag2, EPSILON)) {
+  //   return Vec2D::Zero;
+  // }
+
+  float dot = Dot(vec2);
+
+  return unitVec2 * dot;
+}
