@@ -49,6 +49,7 @@ class Vec2D {
   float Dot(const Vec2D& vec) const;
 
   Vec2D ProjectOnto(const Vec2D& vec2) const;
+  float AngleBetween(const Vec2D& vec2) const;
 
   friend Vec2D operator*(float scalar, const Vec2D& vec);
 
