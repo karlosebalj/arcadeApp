@@ -116,3 +116,9 @@ Vec2D Vec2D::ProjectOnto(const Vec2D& vec2) const {
 float Vec2D::AngleBetween(const Vec2D& vec2) const {
   return std::acos(GetUnitVec().Dot(vec2.GetUnitVec()));
 }
+
+Vec2D Vec2D::Reflect(const Vec2D& normal) const {
+  // v - 2(v dot n)n
+  return *this - 2 * ProjectOnto(normal);
+}
+
